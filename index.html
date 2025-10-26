@@ -1,82 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial 1</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Series de TV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
-
 <body>
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
-            <div class="col">
-                <h1>Ana María Suarez</h1>
-                <img class="img-fluid max-width: 100% height: auto" src="./WallpaperDISC.png" alt="Avatar">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Datos Personales</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Código</td>
-                            <td>10234320</td>
-                        </tr>
-                        <tr>
-                            <td>Cédula</td>
-                            <td>12221122</td>
-                        </tr>
-                        <tr>
-                            <td>Edad</td>
-                            <td>25 Años</td>
-                        </tr>
-                        <tr>
-                            <td>Dirección</td>
-                            <td>Calle falsa 123</td>
-                        </tr>
-                        <tr>
-                            <td>Teléfono</td>
-                            <td>018002500</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col">
-                <h2>Cursos Actuales</h2>
+            <!-- Columna izquierda - Lista de series -->
+            <div class="col-md-8">
+                <h2>Series de TV</h2>
+                
+                <!-- AGREGAR ESTA SECCIÓN DEL PROMEDIO -->
+                <div class="alert alert-secondary mb-3">
+                    <strong>Promedio de temporadas:</strong> 
+                    <span id="promedio-temporadas">0</span>
+                </div>
 
                 <form style="margin:10px;">
                     <div class="form-row">
                         <div class="col">
                             <input type="text" class="form-control" id="search-box" placeholder="Filtrar por nombre">
                         </div>
-                        <!-- Mostrar este botón -->
                         <div class="col">
                             <button type="button" id="button-filterByName" class="btn btn-success">Aplicar</button>
                         </div>
                     </div>
                 </form>
 
-
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Curso</th>
-                            <th>Profesor</th>
-                            <th>Créditos</th>
+                            <th>ID</th>
+                            <th>Channel</th>
+                            <th>Nombre</th>
+                            <th>Temporadas</th>
                         </tr>
                     </thead>
-                    <!-- Mostrar este body que se poblará con los cursos-->
-                    <tbody id="courses">
-                    </tbody>
+                    <tbody id="courses"></tbody>
                 </table>
+            </div>
 
-                <p id="total-credits"></p>
-
+            <!-- Columna derecha - Detalles de la serie -->
+            <div class="col-md-4">
+                <div id="serie-details" style="display: none;">
+                    <div class="card">
+                        <img id="detail-imagen" class="card-img-top" src="" alt="Imagen de la serie">
+                        <div class="card-body">
+                            <h5 id="detail-nombre" class="card-title"></h5>
+                            <p id="detail-canal" class="card-text"></p>
+                            <p id="detail-temporadas" class="card-text"></p>
+                            <p id="detail-descripcion" class="card-text"></p>
+                            <p id="detail-enlace" class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="no-selection" class="alert alert-info">
+                    Selecciona una serie para ver sus detalles
+                </div>
             </div>
         </div>
     </div>
@@ -85,6 +68,4 @@
     <script type="module" src="./scripts/dataCourses.js"></script>
     <script type="module" src="./scripts/main.js"></script>
 </body>
-
-
 </html>
